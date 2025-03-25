@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,12 +62,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for cash loan app
-				'cash-blue': '#1E88E5',
-				'cash-light-blue': '#90CAF9',
-				'cash-dark-blue': '#0D47A1',
-				'cash-gray': '#F5F7FA',
-				'cash-dark-gray': '#263238',
+				// New orange color scheme
+				'cash-blue': '#F97316', // Changed to orange
+				'cash-light-blue': '#FDBA74', // Light orange
+				'cash-dark-blue': '#C2410C', // Dark orange
+				'cash-gray': '#FFF7ED', // Orange tinted background
+				'cash-dark-gray': '#431407', // Dark brown for text
+				// Tanzanian flag colors
+				'tz-green': '#1EB53A',
+				'tz-yellow': '#FCD116',
+				'tz-black': '#000000',
+				'tz-blue': '#00A3DD',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -115,6 +119,14 @@ export default {
 					'0%': { transform: 'scale(0.95)', opacity: '0' },
 					'100%': { transform: 'scale(1)', opacity: '1' },
 				},
+				'3d-float': {
+					'0%, 100%': { transform: 'translateY(0) translateZ(0) rotateX(0deg)' },
+					'50%': { transform: 'translateY(-10px) translateZ(20px) rotateX(5deg)' },
+				},
+				'3d-pulse': {
+					'0%, 100%': { transform: 'scale(1) translateZ(0)' },
+					'50%': { transform: 'scale(1.05) translateZ(10px)' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -126,11 +138,14 @@ export default {
 				'fade-in': 'fade-in 0.5s ease-out',
 				'spin-slow': 'spin-slow 12s linear infinite',
 				'scale-up': 'scale-up 0.4s ease-out',
+				'3d-float': '3d-float 6s ease-in-out infinite',
+				'3d-pulse': '3d-pulse 4s ease-in-out infinite',
 			},
 			boxShadow: {
 				'subtle': '0 2px 10px rgba(0, 0, 0, 0.05)',
 				'app': '0 20px 50px rgba(0, 0, 0, 0.1)',
-				'blue-glow': '0 0 20px rgba(30, 136, 229, 0.2)',
+				'blue-glow': '0 0 20px rgba(249, 115, 22, 0.3)', // Changed to orange glow
+				'3d': '0 10px 30px -10px rgba(249, 115, 22, 0.3), 0 5px 10px -5px rgba(249, 115, 22, 0.2)', // 3D orange shadow
 			},
 			backdropBlur: {
 				'xs': '2px',

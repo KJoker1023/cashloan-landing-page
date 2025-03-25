@@ -2,6 +2,7 @@
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface FAQItem {
   question: string;
@@ -16,9 +17,13 @@ interface FAQAccordionProps {
 
 const FAQAccordion: React.FC<FAQAccordionProps> = ({ 
   faqs, 
-  title = "Frequently Asked Questions", 
+  title, 
   description 
 }) => {
+  const { language } = useLanguage();
+  
+  const defaultTitle = language === 'en' ? 'Frequently Asked Questions' : 'Maswali Yanayoulizwa Mara kwa Mara';
+
   return (
     <section className="bg-white py-20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
@@ -29,7 +34,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-cash-dark-blue mb-4">{title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-cash-dark-blue mb-4">{title || defaultTitle}</h2>
           {description && (
             <p className="text-cash-dark-gray/70">{description}</p>
           )}
@@ -40,7 +45,7 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-cash-gray rounded-2xl p-6 md:p-8"
+          className="bg-cash-gray rounded-2xl p-6 md:p-8 shadow-3d"
         >
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, index) => (

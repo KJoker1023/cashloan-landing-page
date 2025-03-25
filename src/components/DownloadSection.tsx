@@ -1,9 +1,28 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { AppleIcon } from "lucide-react";
+import { AppleIcon, Languages } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import TanzaniaMap3D from "./TanzaniaMap3D";
 
 const DownloadSection = () => {
+  const { language } = useLanguage();
+
+  const features = {
+    en: [
+      "Available on iPhone and iPad",
+      "Optimized for iOS 17",
+      "Touch ID & Face ID secure login",
+      "M-Pesa and Tigo Pesa integration"
+    ],
+    sw: [
+      "Inapatikana kwenye iPhone na iPad",
+      "Imeboreshwa kwa iOS 17",
+      "Ufunguo salama wa Touch ID & Face ID",
+      "Unganisho wa M-Pesa na Tigo Pesa"
+    ]
+  };
+
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Background with gradient */}
@@ -37,7 +56,7 @@ const DownloadSection = () => {
                         <span className="text-white text-2xl font-bold">$</span>
                       </div>
                       <h3 className="text-xl font-bold text-cash-dark-blue">CashLoan</h3>
-                      <p className="text-xs text-cash-dark-gray/60">Finance</p>
+                      <p className="text-xs text-cash-dark-gray/60">{language === 'en' ? 'Finance' : 'Fedha'}</p>
                     </div>
                     
                     <div className="bg-cash-gray rounded-xl p-4 mb-4">
@@ -45,11 +64,11 @@ const DownloadSection = () => {
                         <div className="flex items-center">
                           <div className="h-8 w-8 rounded-full bg-cash-blue flex items-center justify-center text-white font-bold text-xs">4.8</div>
                           <div className="ml-2">
-                            <div className="text-xs font-bold">Rating</div>
-                            <div className="text-xs text-cash-dark-gray/60">1.2K reviews</div>
+                            <div className="text-xs font-bold">{language === 'en' ? 'Rating' : 'Ukadiriaji'}</div>
+                            <div className="text-xs text-cash-dark-gray/60">{language === 'en' ? '1.2K reviews' : 'Maoni 1.2K'}</div>
                           </div>
                         </div>
-                        <div className="text-xs text-cash-blue">See All</div>
+                        <div className="text-xs text-cash-blue">{language === 'en' ? 'See All' : 'Tazama Yote'}</div>
                       </div>
                       <div className="flex space-x-1">
                         {[1, 2, 3, 4, 5].map((_, i) => (
@@ -66,24 +85,24 @@ const DownloadSection = () => {
                           ))}
                         </div>
                         <div className="text-xs">
-                          <span className="font-medium">Sarah M.</span> and 245 others recently downloaded this app
+                          <span className="font-medium">Sarah M.</span> {language === 'en' ? 'and 245 others recently downloaded this app' : 'na wengine 245 wamepakua programu hii hivi karibuni'}
                         </div>
                       </div>
                     </div>
                     
                     <div className="space-y-2">
-                      <div className="text-xs text-cash-dark-gray/60 mb-1">WHAT'S NEW</div>
+                      <div className="text-xs text-cash-dark-gray/60 mb-1">{language === 'en' ? 'WHAT\'S NEW' : 'VIPYA'}</div>
                       <div className="text-xs">
-                        - iOS 17 optimization<br />
-                        - New loan options<br />
-                        - Faster approval process<br />
-                        - Bug fixes and improvements
+                        - {language === 'en' ? 'iOS 17 optimization' : 'Uboreshaji wa iOS 17'}<br />
+                        - {language === 'en' ? 'New loan options' : 'Chaguo mpya za mikopo'}<br />
+                        - {language === 'en' ? 'Faster approval process' : 'Mchakato wa haraka wa kuidhinishwa'}<br />
+                        - {language === 'en' ? 'Bug fixes and improvements' : 'Marekebisho ya hitilafu na maboresho'}
                       </div>
                     </div>
                     
                     <div className="mt-auto pb-4">
                       <button className="w-full bg-cash-blue text-white py-3 rounded-xl font-medium shadow-blue-glow">
-                        GET
+                        {language === 'en' ? 'GET' : 'PATA'}
                       </button>
                     </div>
                   </div>
@@ -100,21 +119,22 @@ const DownloadSection = () => {
             transition={{ duration: 0.6 }}
             className="md:order-1"
           >
+            <div className="mb-8">
+              <TanzaniaMap3D />
+            </div>
+            
             <h2 className="text-3xl md:text-4xl font-bold text-cash-dark-blue mb-6">
-              Download our app <br />
-              <span className="text-gradient">exclusively for iOS</span>
+              {language === 'en' ? 'Download our app' : 'Pakua programu yetu'} <br />
+              <span className="text-gradient">{language === 'en' ? 'exclusively for iOS' : 'pekee kwa iOS'}</span>
             </h2>
             <p className="text-cash-dark-gray/70 mb-8">
-              Get the CashLoan app on your iPhone or iPad and enjoy a seamless borrowing experience. Apply for loans, track your repayments, and manage your account—all from one intuitive app.
+              {language === 'en' 
+                ? 'Get the CashLoan app on your iPhone or iPad and enjoy a seamless borrowing experience. Apply for loans, track your repayments, and manage your account—all from one intuitive app.' 
+                : 'Pata programu ya CashLoan kwenye iPhone au iPad yako na furahia uzoefu rahisi wa kukopa. Omba mikopo, fuatilia malipo yako, na simamia akaunti yako—yote kutoka kwenye programu moja rahisi kutumia.'}
             </p>
             
             <ul className="space-y-4 mb-8">
-              {[
-                "Available on iPhone and iPad",
-                "Optimized for iOS 17",
-                "Touch ID & Face ID secure login",
-                "Apple Pay integration for easy repayments"
-              ].map((feature, index) => (
+              {features[language].map((feature, index) => (
                 <li key={index} className="flex items-start">
                   <div className="mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-cash-blue/10 flex items-center justify-center">
                     <div className="w-2 h-2 rounded-full bg-cash-blue"></div>
@@ -129,7 +149,7 @@ const DownloadSection = () => {
               className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium transition-transform hover:scale-105"
             >
               <AppleIcon className="mr-2 h-5 w-5" />
-              Download on the App Store
+              {language === 'en' ? 'Download on the App Store' : 'Pakua kwenye Duka la Programu'}
             </a>
           </motion.div>
         </div>
