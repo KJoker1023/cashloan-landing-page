@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'sw';
@@ -24,9 +25,9 @@ const translations: Translations = {
     sw: 'Pata mikopo ya haraka kutoka CLAREEN MICROFINANCE LIMITED. Omba, idhinishwa, na pokea fedha moja kwa moja kwenye kifaa chako.',
   },
   // Hero Section
-  downloadIOS: {
-    en: 'Download on iOS',
-    sw: 'Pakua kwenye iOS',
+  downloadAndroid: {
+    en: 'Download on Android',
+    sw: 'Pakua kwenye Android',
   },
   learnMore: {
     en: 'Learn More',
@@ -51,8 +52,8 @@ const translations: Translations = {
     sw: 'Tayari kuanza?',
   },
   downloadNow: {
-    en: 'Download Now for iOS',
-    sw: 'Pakua Sasa kwa iOS',
+    en: 'Download Now for Android',
+    sw: 'Pakua Sasa kwa Android',
   },
   // Change language
   changeLanguage: {

@@ -1,96 +1,19 @@
 
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
-import * as THREE from 'three';
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const canvasRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-
-    // Three.js setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(canvasRef.current.clientWidth, canvasRef.current.clientHeight);
-    renderer.setClearColor(0x000000, 0);
-    canvasRef.current.appendChild(renderer.domElement);
-    
-    // Create a torus knot
-    const geometry = new THREE.TorusKnotGeometry(2, 0.6, 100, 16);
-    const material = new THREE.MeshPhongMaterial({ 
-      color: 0xF97316,
-      specular: 0xF97316,
-      shininess: 100,
-      flatShading: false,
-    });
-    
-    const torusKnot = new THREE.Mesh(geometry, material);
-    scene.add(torusKnot);
-    
-    // Add ambient light
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
-    
-    // Add directional light
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
-    scene.add(directionalLight);
-    
-    // Position camera
-    camera.position.z = 10;
-    
-    // Animation
-    const animate = () => {
-      requestAnimationFrame(animate);
-      
-      // Rotate the torus knot
-      torusKnot.rotation.x += 0.005;
-      torusKnot.rotation.y += 0.005;
-      
-      renderer.render(scene, camera);
-    };
-    
-    animate();
-    
-    // Handle window resize
-    const handleResize = () => {
-      if (!canvasRef.current) return;
-      
-      camera.aspect = canvasRef.current.clientWidth / canvasRef.current.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(canvasRef.current.clientWidth, canvasRef.current.clientHeight);
-    };
-    
-    window.addEventListener('resize', handleResize);
-    
-    // Cleanup
-    return () => {
-      if (canvasRef.current && canvasRef.current.contains(renderer.domElement)) {
-        canvasRef.current.removeChild(renderer.domElement);
-      }
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <div className="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-white to-cash-gray relative">
       <div className="absolute top-4 right-4 z-50">
         <LanguageSwitcher />
       </div>
-      
-      {/* 3D Background */}
-      <div 
-        ref={canvasRef} 
-        className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-40 pointer-events-none"
-      ></div>
       
       {/* Tanzania flag colors decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-tz-green opacity-10"></div>
@@ -106,7 +29,7 @@ const HeroSection = () => {
             transition={{ duration: 0.5 }}
           >
             <span className="inline-block px-3 py-1 text-xs font-medium bg-cash-light-blue/20 text-cash-blue rounded-full mb-4">
-              iOS Exclusive
+              Tanzania's Financial Partner
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {t('quickCash')} <span className="bg-gradient-to-r from-cash-blue to-cash-dark-blue bg-clip-text text-transparent">Tanzania</span>
@@ -120,7 +43,8 @@ const HeroSection = () => {
                 to="/"
                 className="bg-cash-blue text-white btn-hover-effect px-6 py-3 font-medium text-base rounded-lg shadow-blue-glow flex items-center justify-center"
               >
-                {t('downloadIOS')}
+                <Smartphone className="mr-2 h-5 w-5" />
+                {t('downloadAndroid')}
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link 
@@ -145,28 +69,28 @@ const HeroSection = () => {
             </div>
           </motion.div>
           
-          {/* Phone mockup */}
+          {/* Phone mockup with illustrations instead of 3D */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative flex justify-center md:justify-end"
           >
-            <motion.div 
-              className="relative w-72 h-[500px] md:w-80 md:h-[560px]"
-              animate={{ rotateY: [0, 5, 0] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            >
+            <div className="relative w-72 h-[500px] md:w-80 md:h-[560px]">
               <div className="absolute inset-0 bg-gradient-to-b from-cash-blue/20 to-transparent rounded-[40px] blur-2xl opacity-70 translate-y-4"></div>
-              <div className="absolute inset-0 bg-white rounded-[40px] shadow-app overflow-hidden border-4 border-gray-100 transform-style-3d">
-                <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-r from-cash-blue to-cash-dark-blue"></div>
-                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-40 h-2 bg-black rounded-full"></div>
+              
+              {/* Android Phone Mockup */}
+              <div className="absolute inset-0 bg-white rounded-[40px] shadow-app overflow-hidden border-4 border-gray-100">
+                {/* Phone Camera & Speaker */}
+                <div className="absolute top-0 left-0 right-0 h-6 bg-gray-800 flex justify-center items-center">
+                  <div className="w-20 h-1 bg-gray-700 rounded-full"></div>
+                </div>
                 
                 {/* App UI mockup */}
-                <div className="absolute top-20 left-0 right-0 bottom-0 p-4">
+                <div className="absolute top-8 left-0 right-0 bottom-0 p-4">
                   <div className="h-full flex flex-col">
                     <div className="text-center mb-6 pt-2">
-                      <h3 className="text-xl font-bold text-cash-dark-blue">CashLoan</h3>
+                      <h3 className="text-xl font-bold text-cash-dark-blue">DoPesa</h3>
                       <p className="text-xs text-cash-dark-gray/60">Tanzania</p>
                     </div>
                     <div className="bg-cash-gray rounded-xl p-4 mb-4">
@@ -199,19 +123,30 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
-            
-            {/* Decorative elements */}
-            <motion.div 
-              className="absolute -right-4 top-20 w-12 h-12 bg-cash-light-blue rounded-full opacity-50"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-            />
-            <motion.div 
-              className="absolute -left-6 bottom-32 w-8 h-8 bg-cash-blue rounded-full opacity-30"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-            />
+              
+              {/* Tanzanian financial illustrations */}
+              <div className="absolute -right-16 top-10 w-20 h-20 bg-tz-yellow/40 rounded-full flex items-center justify-center z-10">
+                <div className="text-cash-dark-blue text-xl font-bold">TSh</div>
+              </div>
+              <motion.div 
+                className="absolute -left-10 top-32 w-16 h-16 bg-tz-blue/30 rounded-full flex items-center justify-center z-10"
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              >
+                <svg className="w-8 h-8 text-cash-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </motion.div>
+              <motion.div 
+                className="absolute -right-8 bottom-28 w-14 h-14 bg-cash-light-blue/30 rounded-full flex items-center justify-center z-10"
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
+              >
+                <svg className="w-7 h-7 text-cash-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2h0V5z" />
+                </svg>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>

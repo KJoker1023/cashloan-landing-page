@@ -1,24 +1,24 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { AppleIcon, Languages } from "lucide-react";
+import { Smartphone, Languages, Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import TanzaniaMap3D from "./TanzaniaMap3D";
+import FinancialIllustration from "./FinancialIllustration";
 
 const DownloadSection = () => {
   const { language } = useLanguage();
 
   const features = {
     en: [
-      "Available on iPhone and iPad",
-      "Optimized for iOS 17",
-      "Touch ID & Face ID secure login",
+      "Available on all Android devices",
+      "Optimized for the latest Android versions",
+      "Secure biometric login",
       "M-Pesa and Tigo Pesa integration"
     ],
     sw: [
-      "Inapatikana kwenye iPhone na iPad",
-      "Imeboreshwa kwa iOS 17",
-      "Ufunguo salama wa Touch ID & Face ID",
+      "Inapatikana kwenye vifaa vyote vya Android",
+      "Imeboreshwa kwa matoleo ya hivi karibuni ya Android",
+      "Ufunguo salama wa biometric",
       "Unganisho wa M-Pesa na Tigo Pesa"
     ]
   };
@@ -44,22 +44,28 @@ const DownloadSection = () => {
           >
             <div className="relative w-72 h-[500px]">
               <div className="absolute inset-0 bg-gradient-to-b from-cash-blue/20 to-transparent rounded-[40px] blur-2xl opacity-70"></div>
+              
+              {/* Android Phone Mockup */}
               <div className="absolute inset-0 bg-white rounded-[40px] shadow-app overflow-hidden border-4 border-gray-100">
-                <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-r from-cash-blue to-cash-dark-blue"></div>
-                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-40 h-2 bg-black rounded-full"></div>
+                {/* Phone Camera & Speaker */}
+                <div className="absolute top-0 left-0 right-0 h-6 bg-gray-800 flex justify-center items-center">
+                  <div className="w-20 h-1 bg-gray-700 rounded-full"></div>
+                </div>
                 
-                {/* App Store screenshot mockup */}
-                <div className="absolute top-20 left-0 right-0 bottom-0 p-4">
+                {/* Google Play Store screenshot mockup */}
+                <div className="absolute top-8 left-0 right-0 bottom-0 p-4">
                   <div className="h-full flex flex-col">
-                    <div className="text-center mb-6 pt-2">
-                      <div className="mx-auto w-16 h-16 bg-cash-blue rounded-xl mb-3 flex items-center justify-center">
-                        <span className="text-white text-2xl font-bold">$</span>
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-cash-blue to-cash-dark-blue rounded-xl flex items-center justify-center">
+                        <span className="text-white text-xl font-bold">D</span>
                       </div>
-                      <h3 className="text-xl font-bold text-cash-dark-blue">CashLoan</h3>
-                      <p className="text-xs text-cash-dark-gray/60">{language === 'en' ? 'Finance' : 'Fedha'}</p>
+                      <div className="ml-3">
+                        <h3 className="text-base font-bold text-cash-dark-blue">DoPesa</h3>
+                        <p className="text-xs text-cash-dark-gray/60">CLAREEN MICROFINANCE LIMITED</p>
+                      </div>
                     </div>
                     
-                    <div className="bg-cash-gray rounded-xl p-4 mb-4">
+                    <div className="bg-cash-gray rounded-xl p-3 mb-4">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center">
                           <div className="h-8 w-8 rounded-full bg-cash-blue flex items-center justify-center text-white font-bold text-xs">4.8</div>
@@ -77,24 +83,23 @@ const DownloadSection = () => {
                       </div>
                     </div>
                     
-                    <div className="space-y-3 mb-6">
-                      <div className="bg-white rounded-xl p-3 shadow-subtle">
-                        <div className="flex -space-x-2 mb-2">
-                          {[1, 2, 3].map((_, i) => (
-                            <div key={i} className="w-6 h-6 rounded-full bg-cash-light-blue border-2 border-white"></div>
-                          ))}
-                        </div>
-                        <div className="text-xs">
-                          <span className="font-medium">Sarah M.</span> {language === 'en' ? 'and 245 others recently downloaded this app' : 'na wengine 245 wamepakua programu hii hivi karibuni'}
-                        </div>
+                    <div className="bg-white rounded-xl p-3 shadow-subtle mb-4">
+                      <div className="flex justify-between items-center mb-2">
+                        <div className="text-xs font-bold text-cash-dark-blue">{language === 'en' ? 'Downloads' : 'Upakuaji'}</div>
+                        <div className="text-xs text-cash-blue">{language === 'en' ? '10K+' : 'Zaidi ya 10K'}</div>
+                      </div>
+                      <div className="flex space-x-1 items-center">
+                        <div className="text-xs text-cash-dark-gray/70">{language === 'en' ? 'Finance' : 'Fedha'}</div>
+                        <div className="w-1 h-1 bg-cash-dark-gray/30 rounded-full"></div>
+                        <div className="text-xs text-cash-dark-gray/70">{language === 'en' ? '25MB' : '25MB'}</div>
                       </div>
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="mt-2 space-y-2">
                       <div className="text-xs text-cash-dark-gray/60 mb-1">{language === 'en' ? 'WHAT\'S NEW' : 'VIPYA'}</div>
                       <div className="text-xs">
-                        - {language === 'en' ? 'iOS 17 optimization' : 'Uboreshaji wa iOS 17'}<br />
-                        - {language === 'en' ? 'New loan options' : 'Chaguo mpya za mikopo'}<br />
+                        - {language === 'en' ? 'Improved loan application process' : 'Mchakato bora wa maombi ya mikopo'}<br />
+                        - {language === 'en' ? 'New payment options' : 'Chaguo mpya za malipo'}<br />
                         - {language === 'en' ? 'Faster approval process' : 'Mchakato wa haraka wa kuidhinishwa'}<br />
                         - {language === 'en' ? 'Bug fixes and improvements' : 'Marekebisho ya hitilafu na maboresho'}
                       </div>
@@ -102,7 +107,7 @@ const DownloadSection = () => {
                     
                     <div className="mt-auto pb-4">
                       <button className="w-full bg-cash-blue text-white py-3 rounded-xl font-medium shadow-blue-glow">
-                        {language === 'en' ? 'GET' : 'PATA'}
+                        {language === 'en' ? 'INSTALL' : 'SAKINISHA'}
                       </button>
                     </div>
                   </div>
@@ -120,24 +125,24 @@ const DownloadSection = () => {
             className="md:order-1"
           >
             <div className="mb-8">
-              <TanzaniaMap3D />
+              <FinancialIllustration />
             </div>
             
             <h2 className="text-3xl md:text-4xl font-bold text-cash-dark-blue mb-6">
               {language === 'en' ? 'Download our app' : 'Pakua programu yetu'} <br />
-              <span className="text-gradient">{language === 'en' ? 'exclusively for iOS' : 'pekee kwa iOS'}</span>
+              <span className="text-gradient">{language === 'en' ? 'for Android devices' : 'kwa vifaa vya Android'}</span>
             </h2>
             <p className="text-cash-dark-gray/70 mb-8">
               {language === 'en' 
-                ? 'Get the CashLoan app on your iPhone or iPad and enjoy a seamless borrowing experience. Apply for loans, track your repayments, and manage your account—all from one intuitive app.' 
-                : 'Pata programu ya CashLoan kwenye iPhone au iPad yako na furahia uzoefu rahisi wa kukopa. Omba mikopo, fuatilia malipo yako, na simamia akaunti yako—yote kutoka kwenye programu moja rahisi kutumia.'}
+                ? 'Get the DoPesa app on your Android device and enjoy a seamless borrowing experience. Apply for loans, track your repayments, and manage your account—all from one intuitive app.' 
+                : 'Pata programu ya DoPesa kwenye kifaa chako cha Android na furahia uzoefu rahisi wa kukopa. Omba mikopo, fuatilia malipo yako, na simamia akaunti yako—yote kutoka kwenye programu moja rahisi kutumia.'}
             </p>
             
             <ul className="space-y-4 mb-8">
               {features[language].map((feature, index) => (
                 <li key={index} className="flex items-start">
                   <div className="mt-1 mr-3 flex-shrink-0 w-5 h-5 rounded-full bg-cash-blue/10 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-cash-blue"></div>
+                    <Check className="w-3 h-3 text-cash-blue" />
                   </div>
                   <span>{feature}</span>
                 </li>
@@ -146,10 +151,10 @@ const DownloadSection = () => {
             
             <a
               href="#download"
-              className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg font-medium transition-transform hover:scale-105"
+              className="inline-flex items-center justify-center px-6 py-3 bg-cash-blue text-white rounded-lg font-medium transition-transform hover:scale-105 shadow-blue-glow"
             >
-              <AppleIcon className="mr-2 h-5 w-5" />
-              {language === 'en' ? 'Download on the App Store' : 'Pakua kwenye Duka la Programu'}
+              <Smartphone className="mr-2 h-5 w-5" />
+              {language === 'en' ? 'Download on Google Play' : 'Pakua kwenye Google Play'}
             </a>
           </motion.div>
         </div>

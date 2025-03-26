@@ -205,8 +205,8 @@ const Index = () => {
             className="max-w-2xl mx-auto mb-8 opacity-90"
           >
             {language === 'en' 
-              ? 'Download the CashLoan app today and experience the fastest way to get cash when you need it most.'
-              : 'Pakua programu ya CashLoan leo na upate uzoefu wa njia ya haraka zaidi ya kupata pesa taslimu unapozihitaji zaidi.'}
+              ? 'Download the DoPesa app today and experience the fastest way to get cash when you need it most.'
+              : 'Pakua programu ya DoPesa leo na upate uzoefu wa njia ya haraka zaidi ya kupata pesa taslimu unapozihitaji zaidi.'}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ const Index = () => {
               href="#download"
               className="inline-flex items-center justify-center px-6 py-3 bg-white text-cash-blue rounded-lg font-medium transition-transform hover:scale-105 shadow-lg"
             >
-              {language === 'en' ? 'Download Now for iOS' : 'Pakua Sasa kwa iOS'}
+              {language === 'en' ? 'Download Now for Android' : 'Pakua Sasa kwa Android'}
             </a>
           </motion.div>
         </div>
