@@ -1,9 +1,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Smartphone, Languages, Check } from "lucide-react";
+import { Smartphone, Check } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import FinancialIllustration from "./FinancialIllustration";
 
 const DownloadSection = () => {
   const { language } = useLanguage();
@@ -123,11 +122,7 @@ const DownloadSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="md:order-1"
-          >
-            <div className="mb-8">
-              <FinancialIllustration />
-            </div>
-            
+          >            
             <h2 className="text-3xl md:text-4xl font-bold text-cash-dark-blue mb-6">
               {language === 'en' ? 'Download our app' : 'Pakua programu yetu'} <br />
               <span className="text-gradient">{language === 'en' ? 'for Android devices' : 'kwa vifaa vya Android'}</span>

@@ -4,14 +4,16 @@ import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navLinks = [
-    { name: "Home", path: "/" },
+    { name: t('home'), path: "/" },
     { name: "FAQ", path: "/faq" },
     { name: "Privacy", path: "/privacy" },
     { name: "Account Deletion", path: "/account-deletion" },
@@ -49,7 +51,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-cash-blue">CashLoan</span>
+            <span className="text-2xl font-bold text-cash-blue">DoPesa</span>
           </Link>
 
           {/* Desktop Navigation */}

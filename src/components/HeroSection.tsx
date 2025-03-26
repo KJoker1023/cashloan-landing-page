@@ -15,11 +15,6 @@ const HeroSection = () => {
         <LanguageSwitcher />
       </div>
       
-      {/* Tanzania flag colors decorative elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-tz-green opacity-10"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-tz-blue opacity-10"></div>
-      <div className="absolute top-40 right-20 w-24 h-24 rounded-full bg-tz-yellow opacity-10"></div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Text content */}
@@ -69,7 +64,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
           
-          {/* Phone mockup with illustrations instead of 3D */}
+          {/* Phone mockup */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -123,29 +118,6 @@ const HeroSection = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Tanzanian financial illustrations */}
-              <div className="absolute -right-16 top-10 w-20 h-20 bg-tz-yellow/40 rounded-full flex items-center justify-center z-10">
-                <div className="text-cash-dark-blue text-xl font-bold">TSh</div>
-              </div>
-              <motion.div 
-                className="absolute -left-10 top-32 w-16 h-16 bg-tz-blue/30 rounded-full flex items-center justify-center z-10"
-                animate={{ y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-              >
-                <svg className="w-8 h-8 text-cash-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
-              </motion.div>
-              <motion.div 
-                className="absolute -right-8 bottom-28 w-14 h-14 bg-cash-light-blue/30 rounded-full flex items-center justify-center z-10"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1 }}
-              >
-                <svg className="w-7 h-7 text-cash-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.7-1 2-2h2v-4h-2c0-1-.5-1.5-1-2h0V5z" />
-                </svg>
-              </motion.div>
             </div>
           </motion.div>
         </div>

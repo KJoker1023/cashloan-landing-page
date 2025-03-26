@@ -22,12 +22,12 @@ const Index = () => {
         answer: "Most approved loans are funded within 24 hours, with many customers receiving money the same day if approved during business hours."
       },
       {
-        question: "Is the CashLoan app secure?",
+        question: "Is the DoPesa app secure?",
         answer: "Yes, we employ bank-level encryption and security protocols to ensure your personal and financial information is kept safe and private."
       },
       {
         question: "What do I need to apply?",
-        answer: "You need to be at least 18 years old, have a valid Tanzanian ID, regular source of income, and an active mobile money account. The application is completed entirely within the iOS app."
+        answer: "You need to be at least 18 years old, have a valid Tanzanian ID, regular source of income, and an active mobile money account. The application is completed entirely within the Android app."
       }
     ],
     sw: [
@@ -40,12 +40,12 @@ const Index = () => {
         answer: "Mikopo mingi iliyoidhinishwa hufadhiliwa ndani ya masaa 24, na wateja wengi hupokea pesa siku hiyo hiyo ikiwa imeidhinishwa wakati wa saa za kazi."
       },
       {
-        question: "Je, programu ya CashLoan ni salama?",
+        question: "Je, programu ya DoPesa ni salama?",
         answer: "Ndiyo, tunatumia usimbaji fiche wa kiwango cha benki na itifaki za usalama kuhakikisha kuwa taarifa zako za kibinafsi na za kifedha zinabaki salama na za faragha."
       },
       {
         question: "Ninahitaji nini ili kuomba?",
-        answer: "Unahitaji kuwa na umri wa miaka 18 au zaidi, kuwa na kitambulisho halali cha Tanzania, chanzo cha mapato cha kawaida, na akaunti ya pesa za simu inayofanya kazi. Maombi yanakamilishwa kikamilifu ndani ya programu ya iOS."
+        answer: "Unahitaji kuwa na umri wa miaka 18 au zaidi, kuwa na kitambulisho halali cha Tanzania, chanzo cha mapato cha kawaida, na akaunti ya pesa za simu inayofanya kazi. Maombi yanakamilishwa kikamilifu ndani ya programu ya Android."
       }
     ]
   };
