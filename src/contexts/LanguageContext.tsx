@@ -1,4 +1,3 @@
-
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'sw';
@@ -16,27 +15,15 @@ const translations: Translations = {
     en: 'Home',
     sw: 'Nyumbani',
   },
-  privacy: {
-    en: 'Privacy',
-    sw: 'Faragha',
-  },
-  faq: {
-    en: 'FAQ',
-    sw: 'Maswali',
-  },
-  accountDeletion: {
-    en: 'Account Deletion',
-    sw: 'Kufuta Akaunti',
-  },
-  // Hero Section
   quickCash: {
-    en: 'Quick cash loans at your fingertips',
-    sw: 'Mikopo ya haraka kwa vidole vyako',
+    en: 'Quick Mobile Loans with DoPesa',
+    sw: 'Mikopo ya Haraka kwa DoPesa',
   },
   appDescription: {
-    en: 'Get instant cash when you need it most. Apply, get approved, and receive funds directly on your iOS device.',
-    sw: 'Pata pesa taslimu mara moja unapohitaji zaidi. Omba, idhinishwa, na kupokea fedha moja kwa moja kwenye kifaa chako cha iOS.',
+    en: 'Get instant mobile loans from CLAREEN MICROFINANCE LIMITED. Apply, get approved, and receive funds directly on your mobile device.',
+    sw: 'Pata mikopo ya haraka kutoka CLAREEN MICROFINANCE LIMITED. Omba, idhinishwa, na pokea fedha moja kwa moja kwenye kifaa chako.',
   },
+  // Hero Section
   downloadIOS: {
     en: 'Download on iOS',
     sw: 'Pakua kwenye iOS',

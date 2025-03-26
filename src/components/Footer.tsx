@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -10,10 +9,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <Link to="/" className="flex items-center space-x-2">
-              <span className="text-2xl font-bold text-cash-blue">CashLoan</span>
+              <span className="text-2xl font-bold text-cash-blue">DoPesa</span>
             </Link>
             <p className="mt-4 text-sm text-cash-dark-gray/70">
-              Fast and secure cash loans directly from your iOS device. Apply in minutes and get your money quickly.
+              A product of CLAREEN MICROFINANCE LIMITED. Fast and secure mobile loans for Tanzanian users.
             </p>
           </div>
 
@@ -60,22 +59,12 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-cash-dark-blue mb-4">Legal</h3>
+            <h3 className="text-sm font-semibold text-cash-dark-blue mb-4">Contact</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/privacy" className="text-sm text-cash-dark-gray/70 hover:text-cash-blue transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="text-sm text-cash-dark-gray/70 hover:text-cash-blue transition-colors">
-                  Terms of Use
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy" className="text-sm text-cash-dark-gray/70 hover:text-cash-blue transition-colors">
-                  Cookie Policy
-                </Link>
+                <a href="mailto:contact@dopesa.cc" className="text-sm text-cash-dark-gray/70 hover:text-cash-blue transition-colors">
+                  Email: contact@dopesa.cc
+                </a>
               </li>
             </ul>
           </div>
