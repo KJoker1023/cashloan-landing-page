@@ -2,12 +2,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle, Smartphone } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
 const HeroSection = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <div className="pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden bg-gradient-to-b from-white to-cash-gray relative">
@@ -34,20 +35,20 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-              <Link 
-                to="/"
+              <button 
+                onClick={() => window.open('#', '_blank')}
                 className="bg-cash-blue text-white btn-hover-effect px-6 py-3 font-medium text-base rounded-lg shadow-blue-glow flex items-center justify-center"
               >
                 <Smartphone className="mr-2 h-5 w-5" />
                 {t('downloadAndroid')}
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link 
-                to="/faq"
+              </button>
+              <button 
+                onClick={() => navigate('/faq')}
                 className="px-6 py-3 border border-cash-blue text-cash-blue font-medium text-base rounded-lg hover:bg-cash-blue/5 transition-colors flex items-center justify-center"
               >
                 {t('learnMore')}
-              </Link>
+              </button>
             </div>
             
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-3 sm:space-y-0 sm:space-x-6">
